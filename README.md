@@ -1,1 +1,3 @@
-# -havard-cs50x-week7-sql
+# Introduction to SQL
+
+## What did i learn
