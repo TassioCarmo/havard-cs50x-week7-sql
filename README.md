@@ -73,3 +73,48 @@ Dictionary
 
 text = {}
 
+```
+
+## Counting
+
+We’ll have to add each title to our dictionary first, and set the initial value to 1:
+```
+import csv
+
+titles = {}
+
+with open("favorites.csv", "r") as file:
+    reader = csv.DictReader(file)
+
+    for row in reader:
+        title = row["title"].strip().upper()
+        if title in titles:
+            titles[title] += 1
+        else:
+            titles[title] = 1
+
+for title in sorted(titles):
+    print(title, titles[title])
+```
+We’ll add the values, or counts, to our loop that prints every show name.
+
+We can also set the initial value to 0, and then increment it by 1 no matter what:
+```
+import csv
+
+titles = {}
+
+with open("favorites.csv", "r") as file:
+    reader = csv.DictReader(file)
+
+    for row in reader:
+        title = row["title"].strip().upper()
+        if not title in titles:
+            titles[title] = 0
+        titles[title] += 1
+
+for title in sorted(titles):
+    print(title, titles[title])
+
+```
+
