@@ -118,3 +118,14 @@ for title in sorted(titles):
 
 ```
 
+We can sort by the values in the dictionary by changing our loop to:
+```
+...
+def get_value(title):
+    return titles[title]
+
+for title in sorted(titles, key=get_value, reverse=True):
+    print(title, titles[title])
+```
+
+   We define a function, f, which just returns the value of a title in the dictionary with titles[title]. The sorted function, in turn, will take in that function as the key to sort the dictionary. And we’ll also pass in reverse=True to sort from largest to smallest, instead of smallest to largest.
