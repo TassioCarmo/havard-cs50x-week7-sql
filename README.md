@@ -187,3 +187,6 @@ SQL supports many functions that we can use to count and summarize data:
     …
 
 
+
+So when you have a table like genres, which is somehow cross referencing the original shows table, if shows have a primary key called ID, and those same numbers appear in the genres table under the column called show ID, by definition, show ID is a foreign key
+
