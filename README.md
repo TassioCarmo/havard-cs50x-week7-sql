@@ -138,3 +138,5 @@ for title in sorted(titles, key=lambda title: titles[title], reverse=True):
     print(title, titles[title])
 ```
   We can write and pass in a lambda, or anonymous function, which has no name but takes in some argument or arguments, and returns a value immediately.
+  
+It throws away the word get value. It throws away the parentheses, and it throws away the return keyword just to tighten things up. And it's well suited for a problem like this where I just want to pass in a tiny little function that does something useful. But it's not something I'm going to reuse. It doesn't need multiple lines to take up space. It's just a nice, elegant one liner. 
