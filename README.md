@@ -133,3 +133,8 @@ for title in sorted(titles, key=get_value, reverse=True):
 you can actually pass whole functions around so that they can be called for you later on by someone else. 
 
 So what this means is that the sorted function written by Python, they didn't know what you're going to want to sort by today. But if you provide them with a function called get value, or anything else, now their sorted function will use that function to determine, OK, if you don't want to sort by the key of the dictionary, what do you want to sort by
+```
+for title in sorted(titles, key=lambda title: titles[title], reverse=True):
+    print(title, titles[title])
+```
+  We can write and pass in a lambda, or anonymous function, which has no name but takes in some argument or arguments, and returns a value immediately.
