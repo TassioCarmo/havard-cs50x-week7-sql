@@ -1,4 +1,4 @@
-# Introduction to SQL
+# Introduction to SQL (sequal)
 
 ## What did i learn
 
@@ -149,3 +149,14 @@ It throws away the word get value. It throws away the parentheses, and it throws
 ? for an optional character
 ^ for start of input
 $ for end of input
+
+
+## Relational databases
+
+ Relational databases are programs that store data, ultimately in files, but with additional data structures and interfaces that allow us to search and store data more efficiently.
+When working with data, we generally need four types of basic operations with the acronym CRUD:
+- CREATE
+- READ
+- UPDATE
+- DELETE
+
