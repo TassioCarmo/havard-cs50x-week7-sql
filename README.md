@@ -129,3 +129,7 @@ for title in sorted(titles, key=get_value, reverse=True):
 ```
 
    We define a function, f, which just returns the value of a title in the dictionary with titles[title]. The sorted function, in turn, will take in that function as the key to sort the dictionary. And we’ll also pass in reverse=True to sort from largest to smallest, instead of smallest to largest.
+
+you can actually pass whole functions around so that they can be called for you later on by someone else. 
+
+So what this means is that the sorted function written by Python, they didn't know what you're going to want to sort by today. But if you provide them with a function called get value, or anything else, now their sorted function will use that function to determine, OK, if you don't want to sort by the key of the dictionary, what do you want to sort by
