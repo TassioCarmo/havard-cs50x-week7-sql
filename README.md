@@ -155,8 +155,8 @@ $ for end of input
 
  Relational databases are programs that store data, ultimately in files, but with additional data structures and interfaces that allow us to search and store data more efficiently.
 When working with data, we generally need four types of basic operations with the acronym CRUD:
-- CREATE
+- CREATE , inset
 - READ
 - UPDATE
-- DELETE
+- DELETE, drop
 
