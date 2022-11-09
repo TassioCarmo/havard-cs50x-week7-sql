@@ -160,3 +160,30 @@ When working with data, we generally need four types of basic operations with th
 - UPDATE
 - DELETE, drop
 
+
+Syntax in SQL might look like:
+
+CREATE TABLE table (column type, ...);
+
+    With a command in the format SELECT columns FROM table;, we can read data from one or more columns. For example, we can write SELECT title, genre FROM favorites; to select both the title and genre.
+
+SQL supports many functions that we can use to count and summarize data:
+
+    AVG
+    COUNT
+    DISTINCT
+    LOWER
+    MAX
+    MIN
+    UPPER
+    
+
+
+    WHERE, adding a Boolean expression to filter our data
+    LIKE, filtering responses more loosely (aproximations
+    ORDER BY
+    LIMIT
+    GROUP BY
+    …
+
+
