@@ -128,7 +128,7 @@ for title in sorted(titles, key=get_value, reverse=True):
     print(title, titles[title])
 ```
 
-   We define a function, f, which just returns the value of a title in the dictionary with titles[title]. The sorted function, in turn, will take in that function as the key to sort the dictionary. And we’ll also pass in reverse=True to sort from largest to smallest, instead of smallest to largest.
+ We define a function, f, which just returns the value of a title in the dictionary with titles[title]. The sorted function, in turn, will take in that function as the key to sort the dictionary. And we’ll also pass in reverse=True to sort from largest to smallest, instead of smallest to largest.
 
 you can actually pass whole functions around so that they can be called for you later on by someone else. 
 
@@ -165,7 +165,7 @@ Syntax in SQL might look like:
 
 CREATE TABLE table (column type, ...);
 
-    With a command in the format SELECT columns FROM table;, we can read data from one or more columns. For example, we can write SELECT title, genre FROM favorites; to select both the title and genre.
+ With a command in the format SELECT columns FROM table;, we can read data from one or more columns. For example, we can write SELECT title, genre FROM favorites; to select both the title and genre.
 
 SQL supports many functions that we can use to count and summarize data:
 
@@ -200,7 +200,7 @@ rows = db.execute("SELECT * FROM users WHERE username = ? AND password = ?", use
 if len(rows) == 1:
     # Log user in
 ```
-    By using the ? symbols as placeholders, our SQL library will escape the input, or prevent dangerous characters from being interpreted as part of the command.
+By using the ? symbols as placeholders, our SQL library will escape the input, or prevent dangerous characters from being interpreted as part of the command.
 
 In contrast, we might have a SQL query that’s a formatted string, such as:
 ```
