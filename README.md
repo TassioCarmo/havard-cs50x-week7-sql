@@ -190,3 +190,24 @@ SQL supports many functions that we can use to count and summarize data:
 
 So when you have a table like genres, which is somehow cross referencing the original shows table, if shows have a primary key called ID, and those same numbers appear in the genres table under the column called show ID, by definition, show ID is a foreign key
 
+## Problems
+
+One problem in SQL is called a SQL injection attack, where an someone can inject, or place, their own commands into inputs that we then run on our database.
+```
+Do this
+rows = db.execute("SELECT * FROM users WHERE username = ? AND password = ?", username, password)
+
+if len(rows) == 1:
+    # Log user in
+```
+    By using the ? symbols as placeholders, our SQL library will escape the input, or prevent dangerous characters from being interpreted as part of the command.
+
+In contrast, we might have a SQL query that’s a formatted string, such as:
+```
+NEVER DO THIS
+rows = db.execute(f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'")
+
+if len(rows) == 1:
+    # Log user in
+```
+
