@@ -394,6 +394,13 @@ INSERT INTO
     (<columns>)
 VALUES
     (<values>)SELECT
+
+NSERT INTO
+    users
+(username, password, fullname)
+    VALUES
+(‘newman’, ‘USMAIL’, ‘Newman’)  
+    
 ```    
 ### SELECT
 - Extract information from a table.
