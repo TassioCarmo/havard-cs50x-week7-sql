@@ -1,4 +1,4 @@
-# Introduction to SQL (sequal)
+# Introduction to SQL/ Structured Query Language (sequal)
 
 ## What did i learn
 
