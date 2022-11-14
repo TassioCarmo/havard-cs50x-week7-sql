@@ -29,7 +29,7 @@ with open("favorites.csv", "r") as file:
 
 Now, if we run our program, we’ll see a list of show titles: 
 
-Dict object
+## Dict object
 
 what's coming back now is a dict object, that is, a dictionary which has keys and values. The keys of which are the column headings. 
 ```
@@ -185,10 +185,172 @@ SQL supports many functions that we can use to count and summarize data:
     LIMIT
     GROUP BY
     …
-
+    
 
 
 So when you have a table like genres, which is somehow cross referencing the original shows table, if shows have a primary key called ID, and those same numbers appear in the genres table under the column called show ID, by definition, show ID is a foreign key
+
+```
+import our CSV file into a database:
+
+$ sqlite3 favorites.db
+SQLite version 3.36.0 2021-06-18 18:36:39
+Enter ".help" for usage hints.
+sqlite> .mode csv
+sqlite> .import favorites.csv favorites
+```
+
+open our database file again, and check the schema, or design, of our new table with .schema:
+```
+$ sqlite3 favorites.db
+SQLite version 3.36.0 2021-06-18 18:36:39
+Enter ".help" for usage hints.
+sqlite> .schema
+CREATE TABLE IF NOT EXISTS "favorites"(
+  "Timestamp" TEXT,
+  "title" TEXT,
+  "genres" TEXT
+);
+```
+
+<code>.import</code> used the <code>CREATE TABLE</code> ... command to create a table called <code>favorites</code>, with column names automatically copied from the CSV’s header row, and types for each of them assumed to be text.
+
+With a command in the format <code>SELECT columns FROM table;</code>, we can read data from one or more columns. For example, we can write SELECT title, genre FROM favorites; to select both the title and genre.
+
+SQL supports many functions that we can use to count and summarize data:
+
+    AVG
+    COUNT
+    DISTINCT
+    LOWER
+    MAX
+    MIN
+    UPPER
+    
+### clean up our titles as before, converting them to uppercase and printing only the unique values:
+
+<code>sqlite> SELECT DISTINCT(UPPER(title)) FROM shows;</code>
+
+### Get a count of how many responses there are:
+
+<code>sqlite> SELECT COUNT(title) FROM favorites;</code>
+
+
+### Add more phrases to our command:
+
+    WHERE, adding a Boolean expression to filter our data
+    LIKE, filtering responses more loosely
+    ORDER BY
+    LIMIT
+    GROUP BY
+    …
+
+### Limit the number of results:
+
+<code>sqlite> SELECT title FROM favorites LIMIT 10;</code>
+
+### Look for titles matching a string:
+
+% character is a placeholder for zero or more other characters
+
+sqlite> SELECT title FROM favorites WHERE title LIKE "%office%";
+
+### select just the count in our command:
+
+sqlite> SELECT COUNT(title) FROM favorites WHERE title LIKE "%office%";
+
+### Delete:
+
+```
+sqlite> SELECT COUNT(title) FROM favorites WHERE title LIKE "%friends%";
+
+sqlite> DELETE FROM favorites WHERE title LIKE "%friends%";
+sqlite> SELECT COUNT(title) FROM favorites WHERE title LIKE "%friends%";
+
+```
+
+### Update a specific row of data:
+
+```
+sqlite> SELECT title FROM favorites WHERE title = "Thevoffice";
+
+sqlite> UPDATE favorites SET title = "The Office" WHERE title = "Thevoffice";
+sqlite> SELECT title FROM favorites WHERE title = "Thevoffice"; 
+```
+
+###     change the values in multiple rows, too:
+
+    sqlite> SELECT genres FROM favorites WHERE title = "Game of Thrones";
+
+    +--------------------------------------------------------------------------------------------------------------+
+    sqlite> UPDATE favorites SET genres = "Action, Adventure, Drama, Fantasy, Thriller, War" WHERE title = "Game of Thrones";
+    sqlite> SELECT genres FROM favorites WHERE title = "Game of Thrones";
+
+- With DELETE and DROP, we can remove rows and even entire tables as well.
+- And notice that in our commands, we’ve written SQL keywords in all caps, so they stand out more.
+- There also isn’t a built-in way to undo commands, so if we make a mistake we might have to build our database again!
+
+
+## SQL with Python
+
+ asks the user for a show title and then prints its popularity:
+```
+import csv
+
+from cs50 import SQL
+
+db = SQL("sqlite:///favorites.db")
+
+title = input("Title: ").strip()
+
+rows = db.execute("SELECT COUNT(*) AS counter FROM favorites WHERE title LIKE ?", title)
+
+row = rows[0]
+
+print(row["counter"])
+```
+
+
+### import our CSV data into two tables:
+
+```  
+Imports titles and genres from CSV into a SQLite database
+
+import cs50
+import csv
+  
+# Create database
+open("favorites8.db", "w").close()
+db = cs50.SQL("sqlite:///favorites8.db")
+  
+# Create tables
+db.execute("CREATE TABLE shows (id INTEGER, title TEXT NOT NULL, PRIMARY KEY(id))")
+db.execute("CREATE TABLE genres (show_id INTEGER, genre TEXT NOT NULL, FOREIGN KEY(show_id) REFERENCES shows(id))")
+  
+# Open CSV file
+with open("favorites.csv", "r") as file:
+  
+    # Create DictReader
+    reader = csv.DictReader(file)
+  
+    # Iterate over CSV file
+    for row in reader:
+  
+        # Canoncalize title
+        title = row["title"].strip().upper()
+  
+        # Insert title
+        show_id = db.execute("INSERT INTO shows (title) VALUES(?)", title)
+  
+        # Insert genres
+        for genre in row["genres"].split(", "):
+
+            db.execute("INSERT INTO genres (show_id, genre) VALUES(?, ?)", show_id, genre)
+
+
+
+```
+
 
 ## Problems
 
@@ -210,4 +372,7 @@ rows = db.execute(f"SELECT * FROM users WHERE username = '{username}' AND passwo
 if len(rows) == 1:
     # Log user in
 ```
+## other
+
+IN SQL char is not only a single character but a fixed lenght string
 
