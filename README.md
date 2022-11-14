@@ -374,5 +374,9 @@ if len(rows) == 1:
 ```
 ## other
 
-IN SQL char is not only a single character but a fixed lenght string
+IN SQL 
+
+- char is not only a single character but a fixed lenght string
+
+- Varchar variable lenght string
 
