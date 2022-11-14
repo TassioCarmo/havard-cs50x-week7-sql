@@ -380,3 +380,72 @@ IN SQL
 
 - Varchar variable lenght string
 
+### primary key.
+- Primary keys enable rows of a table to be uniquely and quickly identified.
+- Choosing your primary key appropriately can make subsequent operations on the table much easier.
+- It is also possible to establish a joint primary key –a combination of two columns that is always guaranteed to be unique.
+
+
+### INSERT
+- Add information to a table.
+```
+INSERT INTO
+<table>
+    (<columns>)
+VALUES
+    (<values>)SELECT
+```    
+### SELECT
+- Extract information from a table.
+```
+SELECT
+    <columns>
+FROM
+    <table>
+WHERE
+    <condition>
+ORDER BY
+    <column>
+    
+    
+SELECT
+    password
+FROM
+    users
+WHERE
+    idnum< 12 
+    
+```
+
+### SELECT (JOIN)
+•Extract information from multiple tables.
+```
+SELECT
+<columns>
+FROM
+<table1>
+JOIN
+<table2>
+ON
+<predicate>
+```
+
+## UPDATE
+- Modify information in a table.
+```
+UPDATE
+    users
+SET
+    password =‘yadayada’
+WHERE
+    idnum= 10
+```
+
+## DELETE
+- Remove information from a table.
+```
+DELETE FROM
+    users
+WHERE
+    username = ‘newman’
+```
