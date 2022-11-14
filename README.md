@@ -6,7 +6,7 @@
 CSV is very portable. 
 
 "" in CSV Google has done, what Microsoft does, what Apple does is, they quote any strings of text that themselves have commas so that these are now English grammatical commas, not CSV specific commas. 
-
+--------------------------------------
 ## Data Processing
 
 ```
@@ -28,7 +28,7 @@ with open("favorites.csv", "r") as file:
 - Then, we’ll use a loop to print the second column in each row, which is the title.
 
 Now, if we run our program, we’ll see a list of show titles: 
-
+-----------------------
 ## Dict object
 
 what's coming back now is a dict object, that is, a dictionary which has keys and values. The keys of which are the column headings. 
@@ -74,7 +74,7 @@ Dictionary
 text = {}
 
 ```
-
+--------------------------------
 ## Counting
 
 We’ll have to add each title to our dictionary first, and set the initial value to 1:
@@ -150,7 +150,7 @@ It throws away the word get value. It throws away the parentheses, and it throws
 ^ for start of input
 $ for end of input
 
-
+-------------------------------------------
 ## Relational databases
 
  Relational databases are programs that store data, ultimately in files, but with additional data structures and interfaces that allow us to search and store data more efficiently.
@@ -290,6 +290,7 @@ sqlite> SELECT title FROM favorites WHERE title = "Thevoffice";
 - And notice that in our commands, we’ve written SQL keywords in all caps, so they stand out more.
 - There also isn’t a built-in way to undo commands, so if we make a mistake we might have to build our database again!
 
+-------------------------------------
 
 ## SQL with Python
 
@@ -351,7 +352,7 @@ with open("favorites.csv", "r") as file:
 
 ```
 
-
+--------------------------------------------------------------
 ## Problems
 
 One problem in SQL is called a SQL injection attack, where an someone can inject, or place, their own commands into inputs that we then run on our database.
@@ -372,6 +373,7 @@ rows = db.execute(f"SELECT * FROM users WHERE username = '{username}' AND passwo
 if len(rows) == 1:
     # Log user in
 ```
+-------------------------------------------------------------
 ## other
 
 IN SQL 
