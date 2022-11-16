@@ -2,11 +2,6 @@
 
 ## What did i learn
 
-
-CSV is very portable. 
-
-"" in CSV Google has done, what Microsoft does, what Apple does is, they quote any strings of text that themselves have commas so that these are now English grammatical commas, not CSV specific commas. 
---------------------------------------
 ## Data Processing
 
 ```
