@@ -224,7 +224,7 @@ SQL supports many functions that we can use to count and summarize data:
     
 ### clean up our titles as before, converting them to uppercase and printing only the unique values:
 
-<code>sqlite> SELECT DISTINCT(UPPER(title)) FROM shows;</code>
+<code> sqlite > SELECT DISTINCT(UPPER(title)) FROM shows;</code>
 
 ### Get a count of how many responses there are:
 
@@ -248,11 +248,11 @@ SQL supports many functions that we can use to count and summarize data:
 
 % character is a placeholder for zero or more other characters
 
-sqlite> SELECT title FROM favorites WHERE title LIKE "%office%";
+<code>sqlite> SELECT title FROM favorites WHERE title LIKE "%office%";</code>
 
 ### select just the count in our command:
 
-sqlite> SELECT COUNT(title) FROM favorites WHERE title LIKE "%office%";
+<code>sqlite> SELECT COUNT(title) FROM favorites WHERE title LIKE "%office%";</code>
 
 ### Delete:
 
