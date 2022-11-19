@@ -425,13 +425,23 @@ WHERE
 •Extract information from multiple tables.
 ```
 SELECT
-<columns>
+    <columns>
 FROM
-<table1>
+    <table1>
 JOIN
-<table2>
+    <table2>
 ON
-<predicate>
+    <predicate>
+
+SELECT
+    users.fullname, moms.mother
+FROM
+    users
+JOIN
+    moms
+ON
+    users.username= moms.username
+
 ```
 
 ## UPDATE
