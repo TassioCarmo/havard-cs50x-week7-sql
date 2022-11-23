@@ -1,6 +1,6 @@
-# Introduction to SQL/ Structured Query Language (sequal)
+# Introduction to SQL/Structured Query Language (sequal)
 
-## What did i learn
+## What did i learn?
 
 ## Data Processing
 
