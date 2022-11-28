@@ -273,7 +273,7 @@ sqlite> UPDATE favorites SET title = "The Office" WHERE title = "Thevoffice";
 sqlite> SELECT title FROM favorites WHERE title = "Thevoffice"; 
 ```
 
-###     change the values in multiple rows, too:
+### change the values in multiple rows, too:
 
     sqlite> SELECT genres FROM favorites WHERE title = "Game of Thrones";
 
